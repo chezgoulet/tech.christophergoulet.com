@@ -373,53 +373,6 @@ section{padding:60px 0;scroll-margin-top:40px;}
   padding:1px 6px;
 }
 
-/* ══════════════════ ARCHIVE ══════════════════ */
-.archive-log{display:flex;flex-direction:column;gap:2px;}
-
-.archive-entry{
-  display:grid;
-  grid-template-columns:100px 80px 1fr;
-  gap:12px;
-  align-items:baseline;
-  padding:10px 14px;
-  font-family:var(--mono);
-  text-decoration:none;
-  transition:all 0.15s;
-  border-left:2px solid transparent;
-}
-
-.archive-entry:hover{
-  background:rgba(var(--gold-rgb),0.04);
-  border-left-color:var(--gold-dim);
-}
-
-.archive-entry .entry-year{
-  font-size:13px;
-  color:var(--gold-dim);
-}
-
-.archive-entry .entry-status{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:0.8px;
-  font-weight:bold;
-}
-
-.archive-entry .entry-status.active{color:var(--gold-bright);}
-.archive-entry .entry-status.completed{color:var(--text-muted);}
-
-.archive-entry .entry-name{
-  font-size:14px;
-  color:var(--gold);
-}
-
-.archive-entry .entry-name .desc{
-  font-size:12px;
-  color:var(--gold-dim);
-  font-weight:400;
-  margin-left:6px;
-}
-
 /* ══════════════════ GUESTBOOK ══════════════════ */
 .guestbook-panel{
   border:1px solid #1a1a00;
@@ -561,11 +514,6 @@ footer .copyright{
   .top-nav{font-size:12px;}
   .boot{font-size:11px;padding-left:10px;}
   .service-item{padding:10px 8px;flex-direction:column;gap:4px;}
-  .archive-entry{
-    grid-template-columns:1fr;
-    gap:2px;
-  }
-  .archive-entry .entry-status{text-align:left;}
   .guestbook-panel{padding:28px 16px;}
   .hero .content{padding:40px 0 60px;}
   .container{padding:0 14px;}
@@ -732,51 +680,6 @@ footer .copyright{
           <span>Qdrant</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="star-divider">* * * * * * * * * * * * * * *</div>
-
-<!-- ═══ ARCHIVE ═══ -->
-<section id="archive">
-  <div class="container">
-    <div class="section-header">
-      <div class="prompt-label"><span>$</span> ~/ archive</div>
-      <h2>Selected work.</h2>
-    </div>
-
-    <div class="archive-log">
-      <a class="archive-entry" href="https://uprootx.com" target="_blank">
-        <span class="entry-year">2013–</span>
-        <span class="entry-status active">ACTIVE</span>
-        <span class="entry-name">Uproot Technology<span class="desc">Independent IT services and consulting</span></span>
-      </a>
-      <a class="archive-entry" href="https://phononai.org" target="_blank">
-        <span class="entry-year">2026–</span>
-        <span class="entry-status active">ACTIVE</span>
-        <span class="entry-name">Phonon<span class="desc">Private distributed inference cluster</span></span>
-      </a>
-      <a class="archive-entry" href="https://github.com/chezgoulet/ragamuffin" target="_blank">
-        <span class="entry-year">2025–</span>
-        <span class="entry-status active">ACTIVE</span>
-        <span class="entry-name">Ragamuffin<span class="desc">Durable knowledge server for agentic systems</span></span>
-      </a>
-      <a class="archive-entry" href="https://github.com/big-cookie/keyscrape" target="_blank">
-        <span class="entry-year">2014</span>
-        <span class="entry-status completed">COMPLETED</span>
-        <span class="entry-name">Keyscrape<span class="desc">Public-key infrastructure data analysis tool</span></span>
-      </a>
-      <a class="archive-entry" href="https://github.com/big-cookie/wotown" target="_blank">
-        <span class="entry-year">2015</span>
-        <span class="entry-status completed">COMPLETED</span>
-        <span class="entry-name">Wotown<span class="desc">Location-based mobile app for small towns</span></span>
-      </a>
-      <a class="archive-entry" href="https://www.linkedin.com/in/christopher-goulet-9a441760/" target="_blank">
-        <span class="entry-year">2009–2017</span>
-        <span class="entry-status completed">COMPLETED</span>
-        <span class="entry-name">Hanover Stringed Instruments GM<span class="desc">Full P&amp;L, lutherie, live sound production</span></span>
-      </a>
     </div>
   </div>
 </section>
