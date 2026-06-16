@@ -3,49 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christopher Goulet — Resilient Infrastructure &amp; Sovereign Systems</title>
+<title>C.GOULET SYSTEMS — tech / infrastructure / sovereignty</title>
 <meta name="description" content="Infrastructure architect building distributed inference clusters, private AI stacks, zero-trust networks, and agent systems for one-person operation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 <style>
+/* ══════════════════════════════════════════════════
+   C.GOULET SYSTEMS — TERMINAL EDITION
+   ══════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#0a0b0d;
-  --bg2:#0e1014;
-  --bg3:#15171c;
-  --card:#1c1e24;
-  --card-hover:#23262e;
-  --border:#2a2d36;
-  --text:#e2e4e8;
-  --text2:#9a9ca4;
-  --text3:#6a6c74;
-  --copper:#d4895a;
-  --copper-rgb:212,137,90;
-  --copper-dim:#b86a33;
-  --teal:#4fbdbd;
-  --teal-rgb:79,189,189;
-  --teal-dim:#3fa8a8;
-  --radius:12px;
-  --radius-sm:8px;
-  --max-w:1200px;
-  --mono:'IBM Plex Mono','SF Mono','Fira Code',monospace;
-  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-  --serif:'Fraunces',Georgia,serif;
+  --bg:#000000;
+  --bg2:#050505;
+  --gold:#ffb000;
+  --gold-rgb:255,176,0;
+  --gold-dim:#aa7700;
+  --gold-bright:#ffcc00;
+  --cyan:#00cccc;
+  --cyan-rgb:0,204,204;
+  --text:#ffb000;
+  --text-dim:#aa7700;
+  --text-muted:#554400;
+  --mono:'VT323','Courier New','IBM Plex Mono',monospace;
+  --max-w:780px;
 }
 
-::selection{background:rgba(var(--copper-rgb),0.28)}
+::selection{background:rgba(var(--gold-rgb),0.35);color:#000;}
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;}
 
 body{
-  font-family:var(--sans);
+  font-family:var(--mono);
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+  line-height:1.5;
   position:relative;
+  -webkit-font-smoothing:antialiased;
 }
 
 /* Scanline overlay */
@@ -57,652 +53,436 @@ body::after{
     0deg,
     transparent,
     transparent 2px,
-    rgba(255,255,255,0.015) 2px,
-    rgba(255,255,255,0.015) 4px
+    rgba(255,176,0,0.03) 2px,
+    rgba(255,176,0,0.03) 4px
   );
   pointer-events:none;
   z-index:9999;
 }
 
-/* Navigation */
-nav{
-  position:fixed;top:0;left:0;right:0;
-  z-index:100;
-  background:rgba(10,11,13,0.85);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
+/* Blinking cursor */
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0;}
 }
 
-nav .inner{
-  max-width:var(--max-w);
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 24px;
-  height:60px;
-}
-
-nav .logo{
-  font-family:var(--mono);
-  font-weight:600;
-  font-size:16px;
-  color:var(--text);
-  text-decoration:none;
-  letter-spacing:1px;
-}
-
-nav .logo:hover{color:var(--copper);}
-
-nav .links{display:flex;align-items:center;gap:28px;}
-
-nav .links a{
-  color:var(--text2);
-  text-decoration:none;
-  font-family:var(--mono);
-  font-size:12px;
-  font-weight:500;
-  text-transform:uppercase;
-  letter-spacing:0.8px;
-  transition:color 0.2s;
-}
-
-nav .links a:hover{color:var(--text);}
-
-nav .cta-btn{
-  display:inline-flex;
-  align-items:center;
-  padding:7px 18px;
-  background:var(--copper);
-  color:#000 !important;
-  border-radius:6px;
-  font-weight:600;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-  transition:opacity 0.2s;
-}
-
-nav .cta-btn:hover{opacity:0.85;color:#000 !important;}
-
-.nav-toggle{
-  display:none;
-  background:none;
-  border:none;
-  color:var(--text);
-  font-size:24px;
-  cursor:pointer;
-  padding:4px;
-  font-family:var(--sans);
+.cursor::after{
+  content:'_';
+  color:var(--gold-bright);
+  animation:blink 1s step-end infinite;
 }
 
 /* Container */
-.container{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.container{max-width:var(--max-w);margin:0 auto;padding:0 20px;}
 
-/* Section spacing */
-section{scroll-margin-top:76px;}
+/* Section alternating bg */
+section:nth-child(even){background:var(--bg2);}
+section:nth-child(odd){background:var(--bg);}
+section{padding:60px 0;scroll-margin-top:40px;}
 
-/* HERO */
+/* Star divider */
+.star-divider{
+  text-align:center;
+  color:var(--text-muted);
+  font-size:14px;
+  letter-spacing:4px;
+  padding:8px 0;
+  font-family:var(--mono);
+}
+
+/* ══════════════════ NAV ══════════════════ */
+.top-nav{
+  background:#000;
+  border-bottom:1px solid #1a1a00;
+  padding:14px 20px;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:14px;
+  color:var(--gold-dim);
+}
+
+.top-nav a{
+  color:var(--gold);
+  text-decoration:none;
+  padding:0 4px;
+}
+
+.top-nav a:hover{color:var(--gold-bright);text-decoration:underline;}
+.top-nav .pipe{color:var(--text-muted);padding:0 6px;}
+.top-nav .nav-current{color:var(--gold-bright);font-weight:bold;}
+
+/* ══════════════════ HERO ══════════════════ */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-  padding-top:60px;
   position:relative;
   overflow:hidden;
+  padding-top:20px;
 }
 
 #mesh-canvas{
   position:absolute;
   top:0;left:0;right:0;bottom:0;
   z-index:0;
-  opacity:0.5;
+  opacity:0.35;
 }
 
 .hero .content{
   position:relative;
   z-index:1;
   width:100%;
-  padding:80px 0;
-  display:grid;
-  grid-template-columns:1.6fr 1fr;
-  gap:60px;
-  align-items:center;
+  padding:60px 0 80px;
 }
 
-.hero .boot{
+/* ASCII Banner */
+.ascii-banner{
   font-family:var(--mono);
-  font-size:11px;
-  color:var(--copper-dim);
+  font-size:12px;
+  line-height:1.15;
+  color:var(--gold-dim);
+  white-space:pre;
   margin-bottom:24px;
-  line-height:1.7;
+  overflow-x:auto;
 }
 
-.hero .boot .prompt{color:var(--copper);}
-.hero .boot .boot-line{opacity:0;animation:fadeIn 0.4s ease forwards;}
-.hero .boot .boot-line .ok{color:var(--teal);}
-.hero .boot .boot-line.nominal{color:var(--teal);}
-
-@keyframes fadeIn{
-  to{opacity:1;}
+/* Boot sequence */
+.boot{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--gold-dim);
+  margin-bottom:28px;
+  line-height:1.6;
+  border-left:2px solid var(--gold-dim);
+  padding-left:16px;
 }
+
+.boot .prompt{color:var(--gold-bright);}
+.boot .ok{color:var(--gold-bright);}
+.boot-line{opacity:0;animation:fadeIn 0.4s ease forwards;}
+@keyframes fadeIn{to{opacity:1;}}
 
 .hero h1{
-  font-family:var(--serif);
-  font-size:clamp(36px,4.5vw,56px);
-  font-weight:500;
-  font-variation-settings:'SOFT' 80;
-  line-height:1.15;
-  letter-spacing:-0.5px;
-  margin-bottom:20px;
-  color:var(--text);
+  font-family:var(--mono);
+  font-size:clamp(24px,4vw,40px);
+  font-weight:400;
+  color:var(--gold);
+  margin-bottom:16px;
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.hero h1 span{color:var(--copper);}
+.hero h1::after{
+  content:'_';
+  color:var(--gold-bright);
+  animation:blink 1s step-end infinite;
+  margin-left:4px;
+}
 
 .hero .lede{
-  font-size:16px;
-  color:var(--text2);
-  max-width:540px;
-  margin-bottom:16px;
-  line-height:1.7;
+  font-size:15px;
+  color:var(--gold-dim);
+  max-width:620px;
+  margin-bottom:12px;
+  line-height:1.6;
 }
 
-.hero .pull-quote{
-  font-family:var(--serif);
-  font-size:14px;
-  font-style:italic;
-  color:var(--copper);
-  border-left:2px solid var(--copper);
-  padding-left:16px;
-  margin-bottom:28px;
-  line-height:1.5;
+.hero .tagline{
+  font-size:15px;
+  color:var(--gold);
+  font-weight:bold;
+  margin-bottom:24px;
 }
+
+.hero .prompt-line{
+  font-size:13px;
+  color:var(--text-muted);
+  margin-bottom:24px;
+}
+
+.hero .prompt-line span{color:var(--gold-bright);}
 
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap;}
 
-.hero .btn-primary{
+.hero .btn-term{
   display:inline-flex;
   align-items:center;
-  padding:12px 28px;
-  background:var(--copper);
-  color:#000;
-  border-radius:8px;
-  font-weight:600;
+  padding:10px 24px;
+  border:1px solid var(--gold-dim);
+  color:var(--gold);
+  font-family:var(--mono);
   font-size:14px;
   text-decoration:none;
-  transition:all 0.2s;
-  font-family:var(--mono);
-}
-
-.hero .btn-primary:hover{
-  transform:translateY(-1px);
-  box-shadow:0 4px 20px rgba(var(--copper-rgb),0.3);
-}
-
-.hero .btn-ghost{
-  display:inline-flex;
-  align-items:center;
-  padding:12px 28px;
   background:transparent;
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:8px;
-  font-weight:500;
-  font-size:14px;
-  text-decoration:none;
-  transition:all 0.2s;
+  transition:all 0.15s;
+}
+
+.hero .btn-term:hover{
+  background:rgba(var(--gold-rgb),0.1);
+  border-color:var(--gold);
+  color:var(--gold-bright);
+}
+
+.hero .btn-term.primary{
+  background:rgba(var(--gold-rgb),0.12);
+  border-color:var(--gold);
+  color:var(--gold-bright);
+}
+
+.hero .btn-term.primary:hover{
+  background:rgba(var(--gold-rgb),0.2);
+}
+
+/* ══════════════════ PHILOSOPHY ══════════════════ */
+.section-header{margin-bottom:32px;}
+
+.section-header .prompt-label{
   font-family:var(--mono);
-}
-
-.hero .btn-ghost:hover{
-  border-color:var(--copper);
-  color:var(--copper);
-}
-
-/* Hero panel */
-.hero-panel{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px;
-}
-
-.hero-panel .panel-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:16px;
-  padding-bottom:12px;
-  border-bottom:1px solid var(--border);
-}
-
-.hero-panel .status-dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--teal);
-  position:relative;
-  flex-shrink:0;
-}
-
-.hero-panel .status-dot::after{
-  content:'';
-  position:absolute;
-  inset:-3px;
-  border-radius:50%;
-  background:var(--teal);
-  opacity:0.3;
-  animation:pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot{
-  0%,100%{transform:scale(1);opacity:0.3;}
-  50%{transform:scale(1.5);opacity:0.1;}
-}
-
-.hero-panel .panel-title{
-  font-family:var(--mono);
-  font-size:11px;
-  font-weight:500;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  color:var(--text2);
-}
-
-.hero-panel .panel-title span{color:var(--copper);}
-
-.hero-panel .panel-stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.hero-panel .stat-item{
-  background:var(--card);
-  border-radius:var(--radius-sm);
-  padding:14px;
-  text-align:center;
-}
-
-.hero-panel .stat-value{
-  font-family:var(--mono);
-  font-size:16px;
-  font-weight:600;
-  color:var(--copper);
-  margin-bottom:2px;
-}
-
-.hero-panel .stat-label{
-  font-family:var(--mono);
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:0.6px;
-  color:var(--text3);
-}
-
-.hero-panel .panel-foot{
-  margin-top:16px;
-  padding-top:12px;
-  border-top:1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.hero-panel .panel-location{
-  font-family:var(--mono);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:0.8px;
-  color:var(--text3);
-}
-
-.hero-panel .panel-utc{
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--text3);
-}
-
-/* Section header */
-.section-header{margin-bottom:48px;}
-
-.section-header .idx{
-  font-family:var(--mono);
-  font-size:11px;
-  font-weight:500;
-  color:var(--copper);
-  text-transform:uppercase;
-  letter-spacing:0.8px;
+  font-size:12px;
+  color:var(--gold-dim);
   margin-bottom:6px;
 }
 
+.section-header .prompt-label span{color:var(--gold-bright);}
+
 .section-header h2{
-  font-family:var(--serif);
-  font-size:clamp(28px,3vw,38px);
-  font-weight:500;
-  font-variation-settings:'SOFT' 80;
-  color:var(--text);
-  letter-spacing:-0.3px;
+  font-family:var(--mono);
+  font-size:clamp(20px,2.8vw,30px);
+  font-weight:400;
+  color:var(--gold);
+  line-height:1.2;
+  letter-spacing:0.5px;
 }
-
-.section-header p{
-  font-family:var(--sans);
-  font-size:15px;
-  color:var(--text2);
-  margin-top:10px;
-  max-width:500px;
-  line-height:1.6;
-}
-
-/* Philosophy */
-.philosophy{padding:100px 0;}
 
 .proof-block{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-left:3px solid var(--copper);
-  border-radius:var(--radius);
-  padding:36px 40px;
+  border-left:3px solid var(--gold-dim);
+  padding:20px 24px;
+  background:rgba(var(--gold-rgb),0.03);
 }
 
 .proof-block p{
-  font-family:var(--serif);
-  font-size:clamp(16px,1.6vw,20px);
+  font-size:15px;
+  color:var(--gold-dim);
   line-height:1.7;
-  color:var(--text);
+}
+
+/* ══════════════════ SERVICES ══════════════════ */
+.directory-header{
+  font-family:var(--mono);
+  font-size:14px;
+  color:var(--gold-bright);
+  margin-bottom:20px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.directory-header::before{content:'$ [';}
+.directory-header::after{content:']$';}
+
+.service-item{
+  display:flex;
+  gap:12px;
+  padding:12px 14px;
+  border-bottom:1px solid #0a0a00;
+  transition:all 0.15s;
+  align-items:flex-start;
+}
+
+.service-item:hover{
+  background:rgba(var(--gold-rgb),0.04);
+}
+
+.service-item .idx{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text-muted);
+  flex-shrink:0;
+  min-width:32px;
+}
+
+.service-item .body{flex:1;}
+
+.service-item .body h3{
+  font-family:var(--mono);
+  font-size:15px;
   font-weight:400;
+  color:var(--gold);
+  margin-bottom:2px;
 }
 
-/* SERVICES */
-.services{padding:100px 0;}
+.service-item .body h3::before{content:'> ';color:var(--gold-dim);}
 
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+.service-item .body p{
+  font-size:13px;
+  color:var(--gold-dim);
+  line-height:1.5;
 }
 
-.service-card{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px;
-  transition:all 0.25s;
-  border-bottom:2px solid transparent;
+/* ══════════════════ BUILDS ══════════════════ */
+.builds-list{display:flex;flex-direction:column;gap:16px;}
+
+.build-entry{
+  padding:18px 20px;
+  border:1px solid #1a1a00;
+  background:rgba(var(--gold-rgb),0.02);
+  font-family:var(--mono);
 }
 
-.service-card:hover{
-  border-color:var(--border);
-  border-bottom-color:var(--copper);
-  transform:translateY(-2px);
-}
-
-.service-card .icon{
-  width:40px;
-  height:40px;
+.build-entry .build-header{
   display:flex;
   align-items:center;
-  justify-content:center;
-  margin-bottom:16px;
-  color:var(--copper);
-}
-
-.service-card .icon svg{
-  width:32px;
-  height:32px;
-  stroke:var(--copper);
-}
-
-.service-card h3{
-  font-family:var(--mono);
-  font-size:14px;
-  font-weight:600;
-  color:var(--text);
+  gap:10px;
   margin-bottom:8px;
+  flex-wrap:wrap;
 }
 
-.service-card p{
-  font-size:13px;
-  color:var(--text2);
-  line-height:1.6;
-}
-
-/* BUILDS */
-.builds{padding:100px 0;}
-
-.builds-list{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:24px;
-}
-
-.build-card{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px;
-  transition:all 0.25s;
-  position:relative;
-  overflow:hidden;
-}
-
-.build-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:3px;
-  background:var(--copper);
-}
-
-.build-card:hover{
-  border-color:var(--copper-dim);
-  transform:translateY(-2px);
-}
-
-.build-card .build-badge{
+.build-entry .build-tag{
   display:inline-flex;
   align-items:center;
-  gap:6px;
-  font-family:var(--mono);
-  font-size:10px;
+  gap:5px;
+  font-size:11px;
+  color:#000;
+  background:var(--gold-dim);
+  padding:2px 8px;
   text-transform:uppercase;
   letter-spacing:0.8px;
-  padding:4px 10px;
-  border-radius:4px;
-  margin-bottom:14px;
 }
 
-.build-card .build-badge.dev{
-  background:rgba(var(--teal-rgb),0.1);
-  color:var(--teal);
-  border:1px solid rgba(var(--teal-rgb),0.2);
+.build-entry .build-tag.active{
+  background:var(--gold);
+  color:#000;
 }
 
-.build-card .build-badge.hosted{
-  background:rgba(var(--teal-rgb),0.1);
-  color:var(--teal);
-  border:1px solid rgba(var(--teal-rgb),0.2);
+.build-entry .build-name{
+  font-size:18px;
+  color:var(--gold-bright);
+  font-weight:bold;
 }
 
-.build-card .build-status-dot{
-  width:6px;height:6px;
-  border-radius:50%;
-  background:currentColor;
-  flex-shrink:0;
+.build-entry .build-name::before{content:'> ';color:var(--gold-dim);}
+
+.build-entry p{
+  font-size:13px;
+  color:var(--gold-dim);
+  line-height:1.5;
+  margin-top:4px;
 }
 
-.build-card h3{
-  font-family:var(--serif);
-  font-size:22px;
-  font-weight:500;
-  font-variation-settings:'SOFT' 80;
-  margin-bottom:8px;
-}
-
-.build-card p{
-  font-size:14px;
-  color:var(--text2);
-  line-height:1.7;
-}
-
-.build-card .build-tags{
+.build-entry .build-tags{
   display:flex;
   flex-wrap:wrap;
   gap:6px;
-  margin-top:14px;
+  margin-top:10px;
 }
 
-.build-card .build-tags span{
-  font-family:var(--mono);
-  font-size:10px;
-  padding:3px 8px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:4px;
-  color:var(--text3);
+.build-entry .build-tags span{
+  font-size:11px;
+  color:var(--text-muted);
+  border:1px solid #2a2a00;
+  padding:1px 6px;
 }
 
-/* ARCHIVE */
-.archive{padding:100px 0;}
-
-.archive-log{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-}
+/* ══════════════════ ARCHIVE ══════════════════ */
+.archive-log{display:flex;flex-direction:column;gap:2px;}
 
 .archive-entry{
   display:grid;
-  grid-template-columns:110px 90px 1fr;
-  gap:16px;
+  grid-template-columns:100px 80px 1fr;
+  gap:12px;
   align-items:baseline;
   padding:10px 14px;
-  background:var(--bg2);
-  border-radius:var(--radius-sm);
-  transition:all 0.2s;
+  font-family:var(--mono);
   text-decoration:none;
+  transition:all 0.15s;
+  border-left:2px solid transparent;
 }
 
 .archive-entry:hover{
-  background:var(--card);
-  border-color:var(--copper-dim);
+  background:rgba(var(--gold-rgb),0.04);
+  border-left-color:var(--gold-dim);
 }
 
 .archive-entry .entry-year{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--copper);
-  font-weight:500;
+  font-size:13px;
+  color:var(--gold-dim);
 }
 
 .archive-entry .entry-status{
-  font-family:var(--mono);
   font-size:10px;
   text-transform:uppercase;
-  letter-spacing:0.6px;
-  padding:2px 8px;
-  border-radius:3px;
-  text-align:center;
+  letter-spacing:0.8px;
+  font-weight:bold;
 }
 
-.archive-entry .entry-status.active{
-  background:rgba(var(--teal-rgb),0.1);
-  color:var(--teal);
-  border:1px solid rgba(var(--teal-rgb),0.15);
-}
-
-.archive-entry .entry-status.completed{
-  background:rgba(125,171,125,0.1);
-  color:var(--teal-dim);
-  border:1px solid rgba(125,171,125,0.15);
-}
+.archive-entry .entry-status.active{color:var(--gold-bright);}
+.archive-entry .entry-status.completed{color:var(--text-muted);}
 
 .archive-entry .entry-name{
-  font-family:var(--mono);
-  font-size:13px;
-  color:var(--text);
-  font-weight:500;
+  font-size:14px;
+  color:var(--gold);
 }
 
 .archive-entry .entry-name .desc{
-  font-family:var(--sans);
   font-size:12px;
-  color:var(--text2);
+  color:var(--gold-dim);
   font-weight:400;
-  margin-left:8px;
+  margin-left:6px;
 }
 
-/* BOOK SECTION */
-.book-section{padding:100px 0;}
-
-.book-panel{
-  background:var(--bg2);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:48px;
+/* ══════════════════ GUESTBOOK ══════════════════ */
+.guestbook-panel{
+  border:1px solid #1a1a00;
+  padding:40px;
   text-align:center;
-  position:relative;
-  overflow:hidden;
+  background:rgba(var(--gold-rgb),0.02);
 }
 
-.book-panel::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:3px;
-  background:var(--copper);
+.guestbook-panel h2{
+  font-family:var(--mono);
+  font-size:clamp(20px,2.5vw,28px);
+  font-weight:400;
+  color:var(--gold);
+  margin-bottom:10px;
 }
 
-.book-panel h2{
-  font-family:var(--serif);
-  font-size:clamp(26px,3vw,36px);
-  font-weight:500;
-  font-variation-settings:'SOFT' 80;
-  margin-bottom:12px;
+.guestbook-panel .prompt{
+  font-size:14px;
+  color:var(--gold-dim);
+  margin-bottom:24px;
 }
 
-.book-panel p{
-  font-size:15px;
-  color:var(--text2);
-  max-width:480px;
-  margin:0 auto 28px;
-  line-height:1.6;
-}
+.guestbook-panel .prompt span{color:var(--gold-bright);}
 
-.book-panel .btn-book{
+.guestbook-panel .btn-guest{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:14px 36px;
-  background:var(--copper);
-  color:#000;
-  border-radius:8px;
+  padding:12px 32px;
+  border:2px solid var(--gold);
+  color:var(--gold-bright);
   font-family:var(--mono);
-  font-weight:600;
-  font-size:14px;
+  font-size:16px;
   text-decoration:none;
-  transition:all 0.2s;
+  background:rgba(var(--gold-rgb),0.1);
+  transition:all 0.15s;
 }
 
-.book-panel .btn-book:hover{
-  transform:translateY(-1px);
-  box-shadow:0 4px 20px rgba(var(--copper-rgb),0.3);
+.guestbook-panel .btn-guest:hover{
+  background:rgba(var(--gold-rgb),0.2);
+  border-color:var(--gold-bright);
 }
 
-/* FOOTER */
+.guestbook-panel .btn-guest .cursor::after{font-size:16px;}
+
+/* ══════════════════ FOOTER ══════════════════ */
 footer{
-  border-top:1px solid var(--border);
-  padding:48px 0 24px;
+  padding:48px 0 32px;
+  text-align:center;
+  font-family:var(--mono);
 }
 
-footer .inner{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:16px;
-}
+footer .inner{display:flex;flex-direction:column;align-items:center;gap:16px;}
 
 /* Web ring */
 .web-ring{
@@ -711,408 +491,243 @@ footer .inner{
   flex-wrap:wrap;
   justify-content:center;
   align-items:center;
+  font-size:14px;
 }
 
 .web-ring a{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--text3);
+  color:var(--cyan);
   text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:0.6px;
-  transition:color 0.2s;
+  padding:0 2px;
 }
 
-.web-ring a:hover{color:var(--copper);}
+.web-ring a:hover{color:var(--gold-bright);text-decoration:underline;}
 
-.web-ring .ring-arrow{
-  color:var(--text3);
-  font-size:10px;
-  opacity:0.5;
-}
-
+.web-ring .ring-bracket{color:var(--text-muted);}
 .web-ring .ring-current{
-  color:var(--copper);
-  font-weight:600;
+  color:var(--gold-bright);
+  font-weight:bold;
 }
 
-/* Under construction icon */
-.under-construction{
+/* Under construction */
+.construction-icon{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--text3);
+  font-size:12px;
+  color:var(--gold-dim);
 }
 
-.construction-sign{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:24px;
-  height:24px;
-  background:#e8b14f;
-  color:#1a1205;
-  font-weight:700;
-  font-size:14px;
-  border-radius:3px;
-  position:relative;
+.construction-svg{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  vertical-align:middle;
 }
 
-.construction-sign::after{
-  content:'!';
-  font-family:var(--mono);
-  font-weight:700;
-}
-
-footer p{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--text3);
-}
-
-/* Page Counter */
+/* Page counter */
 .page-counter{
-  margin-top:8px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:6px;
+  gap:4px;
 }
 
 .page-counter .counter-label{
-  font-family:var(--mono);
-  font-size:9px;
-  text-transform:uppercase;
+  font-size:11px;
+  color:var(--gold-dim);
   letter-spacing:1px;
-  color:var(--text3);
 }
 
-.counter-display{
-  display:flex;
-  gap:3px;
-}
+.counter-display{display:flex;gap:3px;}
 
 .counter-digit{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:22px;
-  height:28px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:3px;
+  width:24px;
+  height:30px;
+  background:#000;
+  border:1px solid var(--gold-dim);
   font-family:var(--mono);
-  font-size:16px;
-  font-weight:600;
-  color:var(--copper);
+  font-size:18px;
+  font-weight:bold;
+  color:var(--gold-bright);
   line-height:1;
 }
 
-/* Scroll reveal */
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
+footer .footnote{
+  font-size:12px;
+  color:var(--text-muted);
 }
 
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
+footer .copyright{
+  font-size:11px;
+  color:var(--text-muted);
 }
 
-/* Responsive */
-@media(max-width:960px){
-  .hero .content{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-  .service-grid{grid-template-columns:repeat(2,1fr);}
-  .builds-list{grid-template-columns:1fr;}
-}
-
+/* ══════════════════ RESPONSIVE ══════════════════ */
 @media(max-width:640px){
-  nav .links{display:none;}
-  nav .links.open{
-    display:flex;
-    flex-direction:column;
-    position:absolute;
-    top:60px;
-    left:0;
-    right:0;
-    background:var(--bg);
-    border-bottom:1px solid var(--border);
-    padding:16px 24px;
-    gap:14px;
-  }
-  .nav-toggle{display:block;}
-
-  .service-grid{grid-template-columns:1fr;}
+  body{font-size:14px;}
+  .top-nav{font-size:12px;}
+  .ascii-banner{font-size:8px;}
+  .boot{font-size:11px;padding-left:10px;}
+  .service-item{padding:10px 8px;flex-direction:column;gap:4px;}
   .archive-entry{
     grid-template-columns:1fr;
-    gap:4px;
+    gap:2px;
   }
   .archive-entry .entry-status{text-align:left;}
-  .book-panel{padding:32px 20px;}
-  .container{padding:0 16px;}
-  .proof-block{padding:24px 20px;}
+  .guestbook-panel{padding:28px 16px;}
+  .hero .content{padding:40px 0 60px;}
+  .container{padding:0 14px;}
+  .proof-block{padding:16px;}
+}
+
+@media(max-width:480px){
+  .ascii-banner{font-size:6px;}
+  .hero h1{font-size:20px;}
+  .build-entry .build-header{flex-direction:column;align-items:flex-start;}
 }
 </style>
 </head>
 <body>
 
-<!-- SVG Defs -->
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-  <defs>
-    <!-- g-gear: Infrastructure & DevOps -->
-    <g id="g-gear">
-      <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
+<!-- ═══ TOP NAV ═══ -->
+<div class="top-nav">
+  <a href="https://christophergoulet.com">C.GOULET</a>
+  <span class="pipe">|</span>
+  <a href="https://christophergoulet.com/biz.html">services</a>
+  <span class="pipe">|</span>
+  <a href="https://christophergoulet.com/tech.html" class="nav-current">tech</a>
+  <span class="pipe">|</span>
+  <a href="https://christophergoulet.com/canada.html">canada</a>
+  <span class="pipe">|</span>
+  <a href="https://christophergoulet.com/civic.html">civic</a>
+</div>
 
-    <!-- g-ai: Private AI -->
-    <g id="g-ai">
-      <path d="M12 2a10 10 0 0 1 7.07 17.07A10 10 0 0 1 4.93 4.93" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6 12h2M16 12h2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
-
-    <!-- g-shield: Security -->
-    <g id="g-shield">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-      <path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-
-    <!-- g-agent: Agent Systems -->
-    <g id="g-agent">
-      <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M7 7v2h2M17 17v-2h-2M7 17l2-2M17 7l-2 2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-    </g>
-
-    <!-- g-coop: Cooperative Tech -->
-    <g id="g-coop">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
-
-    <!-- g-audio: Audio & Electronics -->
-    <g id="g-audio">
-      <path d="M9 18V5l12-2v13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="6" cy="18" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="18" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M9 12l12-2" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-    </g>
-
-    <!-- g-mesh: mesh network icon -->
-    <g id="g-mesh">
-      <circle cx="6" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="18" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="12" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="12" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <line x1="6" y1="6" x2="18" y2="12" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-      <line x1="18" y1="12" x2="12" y2="18" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-      <line x1="12" y1="18" x2="6" y2="6" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-      <line x1="12" y1="6" x2="12" y2="18" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-    </g>
-
-    <!-- i-mail -->
-    <g id="i-mail">
-      <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M2 6l10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-    </g>
-
-    <!-- i-git -->
-    <g id="i-git">
-      <path d="M9 19c-5 0-7-2-7-7s2-7 7-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M9 5v14" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M9 12c0-3 1.5-5 4-5s4 2 4 5v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
-
-    <!-- i-link -->
-    <g id="i-link">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-
-    <!-- i-pin -->
-    <g id="i-pin">
-      <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-      <circle cx="12" cy="9" r="2" fill="currentColor"/>
-    </g>
-
-    <!-- i-arrow -->
-    <g id="i-arrow">
-      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-  </defs>
-</svg>
-
-<!-- Navigation -->
-<nav>
-  <div class="inner">
-    <a href="https://christophergoulet.com" class="logo">C.GOULET</a>
-    <button class="nav-toggle" onclick="document.querySelector('nav .links').classList.toggle('open')" aria-label="Toggle menu">☰</button>
-    <div class="links">
-      <a href="#services">Services</a>
-      <a href="#builds">Current builds</a>
-      <a href="#archive">Archive</a>
-      <a href="#book" class="cta-btn">Book a call</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero -->
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="top">
   <canvas id="mesh-canvas"></canvas>
   <div class="container">
     <div class="content">
-      <div>
-        <div class="boot" id="boot-sequence">
-          <div class="boot-line" style="animation-delay:0.1s"><span class="prompt">$</span> initializing the house</div>
-          <div class="boot-line" style="animation-delay:0.6s"><span class="ok">✓</span> discovering nodes via mDNS</div>
-          <div class="boot-line" style="animation-delay:1.1s"><span class="ok">✓</span> pairing · ed25519</div>
-          <div class="boot-line" style="animation-delay:1.6s"><span class="ok">✓</span> routing · health-aware</div>
-          <div class="boot-line nominal" style="animation-delay:2.1s"><span class="ok">✓</span> all nodes nominal</div>
-        </div>
-        <h1>Resilient infrastructure.<br><span>Sovereign systems.</span></h1>
-        <p class="lede">I build systems that don't phone home. Distributed inference clusters, private AI stacks, zero-trust networks, and agent systems — all designed for one-person operation.</p>
-        <div class="pull-quote">"I speak human and computer fluently."</div>
-        <div class="btns">
-          <a href="mailto:me@christophergoulet.com" class="btn-primary">Start a conversation</a>
-          <a href="#builds" class="btn-ghost">See what I've built</a>
-        </div>
+      <pre class="ascii-banner">
+  ╔═╗╔═╗╔═╗╦ ╦╦═══╦══╗╦ ╦ ╦ ╦╔═╗╦═╗╦╔╦╗╔═╗
+  ║ ║╚═╗║ ╦║ ║║╔══╣╔╗║║ ╚╦╝ ║║╣ ╠╦╝║ ║ ║ ║
+  ╚═╝╚═╝╚═╝╚═╝╩╚══╩╝╚╝╩  ╩  ╚╝╚═╝╩╚═╩ ╩ ╚═╝
+      </pre>
+
+      <div class="boot" id="boot-sequence">
+        <div class="boot-line" style="animation-delay:0.1s"><span class="prompt">$</span> initializing the house</div>
+        <div class="boot-line" style="animation-delay:0.6s"><span class="ok">✓</span> discovering nodes via mDNS</div>
+        <div class="boot-line" style="animation-delay:1.1s"><span class="ok">✓</span> pairing · ed25519</div>
+        <div class="boot-line" style="animation-delay:1.6s"><span class="ok">✓</span> routing · health-aware</div>
+        <div class="boot-line" style="animation-delay:2.1s"><span class="ok">✓</span> all nodes nominal</div>
       </div>
-      <div>
-        <div class="hero-panel">
-          <div class="panel-header">
-            <div class="status-dot"></div>
-            <div class="panel-title"><span>// TECH INFRA</span> · <span style="color:var(--teal);">LIVE</span></div>
-          </div>
-          <div class="panel-stats">
-            <div class="stat-item">
-              <div class="stat-value">10+</div>
-              <div class="stat-label">yrs experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">3×</div>
-              <div class="stat-label">grew our bakery</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">CGO_ENABLED=0</div>
-              <div class="stat-label">static builds</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">EN·FR</div>
-              <div class="stat-label">bilingual</div>
-            </div>
-          </div>
-          <div class="panel-foot">
-            <span class="panel-location">WINDSOR·VT</span>
-            <span class="panel-utc" id="utc-clock">UTC ← loading</span>
-          </div>
-        </div>
+
+      <h1>Resilient infrastructure — Sovereign systems</h1>
+
+      <p class="lede">I build systems that don't phone home. Distributed inference clusters, private AI stacks, zero-trust networks, and agent systems — all designed for one-person operation.</p>
+
+      <p class="tagline">"I speak human and computer fluently."</p>
+
+      <p class="prompt-line"><span>$</span> ~/ whoami</p>
+
+      <div class="btns">
+        <a href="mailto:me@christophergoulet.com" class="btn-term primary cursor">Start a conversation</a>
+        <a href="#builds" class="btn-term">See what I've built</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Philosophy -->
-<section class="philosophy" id="philosophy">
+<!-- ═══ PHILOSOPHY ═══ -->
+<section id="philosophy">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="idx">A POINT OF VIEW</div>
+    <div class="section-header">
+      <div class="prompt-label"><span>$</span> ~/ point-of-view</div>
       <h2>Systems that last are systems that can evolve.</h2>
     </div>
-    <div class="proof-block reveal">
+    <div class="proof-block">
       <p>You don't design a program to last forever. You design a system to surface problems, address those problems, collaborate with stakeholders, and work on a continuous feedback loop. I generate isomorphic systems for values-based endeavors.</p>
     </div>
   </div>
 </section>
 
-<!-- Services -->
-<section class="services" id="services">
+<div class="star-divider">* * * * * * * * * * * * * * *</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="idx">01 — SERVICES</div>
+    <div class="section-header">
+      <div class="prompt-label"><span>$</span> ~/ services</div>
       <h2>What I build.</h2>
     </div>
-    <div class="service-grid">
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-gear"/>
-          </svg>
+
+    <div class="directory-header">SERVICES DIRECTORY</div>
+
+    <div class="services-list">
+      <div class="service-item">
+        <span class="idx">01.</span>
+        <div class="body">
+          <h3>Infrastructure &amp; DevOps</h3>
+          <p>Docker Compose, TrueNAS, Traefik, Authentik, Tailscale, Nebula — stacks designed for one-person operation.</p>
         </div>
-        <h3>Infrastructure &amp; DevOps</h3>
-        <p>Docker Compose, TrueNAS, Traefik, Authentik, Tailscale, Nebula — stacks designed for one-person operation.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-ai"/>
-          </svg>
+      <div class="service-item">
+        <span class="idx">02.</span>
+        <div class="body">
+          <h3>Private AI Infrastructure</h3>
+          <p>Phonon cluster, on-premise LLM, model distribution — your data stays on your hardware.</p>
         </div>
-        <h3>Private AI Infrastructure</h3>
-        <p>Phonon cluster, on-premise LLM, model distribution — your data stays on your hardware.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-shield"/>
-          </svg>
+      <div class="service-item">
+        <span class="idx">03.</span>
+        <div class="body">
+          <h3>Security &amp; Resilience</h3>
+          <p>Architecture review, threat modeling, logic-level hardening — catching what automated scanners miss.</p>
         </div>
-        <h3>Security &amp; Resilience</h3>
-        <p>Architecture review, threat modeling, logic-level hardening — catching what automated scanners miss.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-agent"/>
-          </svg>
+      <div class="service-item">
+        <span class="idx">04.</span>
+        <div class="body">
+          <h3>Agent Systems</h3>
+          <p>Multi-agent architectures, self-improving infrastructure, and autonomous system management at scale.</p>
         </div>
-        <h3>Agent Systems</h3>
-        <p>Multi-agent architectures, self-improving infrastructure, and autonomous system management at scale.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-coop"/>
-          </svg>
+      <div class="service-item">
+        <span class="idx">05.</span>
+        <div class="body">
+          <h3>Cooperative Technology</h3>
+          <p>Platform co-ops, democratic governance, member-owned infrastructure — technology for collective ownership.</p>
         </div>
-        <h3>Cooperative Technology</h3>
-        <p>Platform co-ops, democratic governance, member-owned infrastructure — technology for collective ownership.</p>
       </div>
-      <div class="service-card reveal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <use href="#g-audio"/>
-          </svg>
+      <div class="service-item">
+        <span class="idx">06.</span>
+        <div class="body">
+          <h3>Audio &amp; Electronics</h3>
+          <p>Studio design, signal flow, live sound — the technical side of the craft from venue to recording.</p>
         </div>
-        <h3>Audio &amp; Electronics</h3>
-        <p>Studio design, signal flow, live sound — the technical side of the craft from venue to recording.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Current Builds -->
-<section class="builds" id="builds">
+<div class="star-divider">* * * * * * * * * * * * * * *</div>
+
+<!-- ═══ CURRENT BUILDS ═══ -->
+<section id="builds">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="idx">02 — CURRENT BUILDS</div>
+    <div class="section-header">
+      <div class="prompt-label"><span>$</span> ~/ current-builds</div>
       <h2>What I'm building now.</h2>
     </div>
+
     <div class="builds-list">
-      <div class="build-card reveal">
-        <div class="build-badge dev">
-          <span class="build-status-dot"></span>
-          IN DEVELOPMENT
+      <div class="build-entry">
+        <div class="build-header">
+          <span class="build-tag active">[ACTIVE]</span>
+          <span class="build-name">Phonon</span>
         </div>
-        <h3>Phonon</h3>
         <p>A private distributed inference cluster. Turn spare Android phones into a secure, private AI cluster. No cloud, no data leakage. mDNS discovery, Ed25519 pairing, health-aware routing. Open source.</p>
         <div class="build-tags">
           <span>distributed systems</span>
@@ -1121,12 +736,11 @@ footer p{
           <span>Ed25519</span>
         </div>
       </div>
-      <div class="build-card reveal">
-        <div class="build-badge hosted">
-          <span class="build-status-dot"></span>
-          SELF-HOSTED
+      <div class="build-entry">
+        <div class="build-header">
+          <span class="build-tag">[IN DEVELOPMENT]</span>
+          <span class="build-name">The House</span>
         </div>
-        <h3>The House</h3>
         <p>A multi-agent system for generational sovereignty. A self-maintaining infrastructure stack whose agents observe, document, and improve the systems they run on.</p>
         <div class="build-tags">
           <span>agent systems</span>
@@ -1138,40 +752,43 @@ footer p{
   </div>
 </section>
 
-<!-- Archive -->
-<section class="archive" id="archive">
+<div class="star-divider">* * * * * * * * * * * * * * *</div>
+
+<!-- ═══ ARCHIVE ═══ -->
+<section id="archive">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="idx">03 — ARCHIVE</div>
+    <div class="section-header">
+      <div class="prompt-label"><span>$</span> ~/ archive</div>
       <h2>Selected work.</h2>
     </div>
+
     <div class="archive-log">
-      <a class="archive-entry reveal" href="https://uprootx.com" target="_blank">
+      <a class="archive-entry" href="https://uprootx.com" target="_blank">
         <span class="entry-year">2013–</span>
         <span class="entry-status active">ACTIVE</span>
         <span class="entry-name">Uproot Technology<span class="desc">Independent IT services and consulting</span></span>
       </a>
-      <a class="archive-entry reveal" href="https://phononai.org" target="_blank">
+      <a class="archive-entry" href="https://phononai.org" target="_blank">
         <span class="entry-year">2026–</span>
         <span class="entry-status active">ACTIVE</span>
         <span class="entry-name">Phonon<span class="desc">Private distributed inference cluster</span></span>
       </a>
-      <a class="archive-entry reveal" href="#" target="_blank">
+      <a class="archive-entry" href="#" target="_blank">
         <span class="entry-year">2025–</span>
         <span class="entry-status active">ACTIVE</span>
         <span class="entry-name">The House<span class="desc">Multi-agent system for generational sovereignty</span></span>
       </a>
-      <a class="archive-entry reveal" href="https://github.com/big-cookie/keyscrape" target="_blank">
+      <a class="archive-entry" href="https://github.com/big-cookie/keyscrape" target="_blank">
         <span class="entry-year">2014</span>
         <span class="entry-status completed">COMPLETED</span>
         <span class="entry-name">Keyscrape<span class="desc">Public-key infrastructure data analysis tool</span></span>
       </a>
-      <a class="archive-entry reveal" href="https://github.com/big-cookie/wotown" target="_blank">
+      <a class="archive-entry" href="https://github.com/big-cookie/wotown" target="_blank">
         <span class="entry-year">2015</span>
         <span class="entry-status completed">COMPLETED</span>
         <span class="entry-name">Wotown<span class="desc">Location-based mobile app for small towns</span></span>
       </a>
-      <a class="archive-entry reveal" href="https://www.linkedin.com/in/christopher-goulet-9a441760/" target="_blank">
+      <a class="archive-entry" href="https://www.linkedin.com/in/christopher-goulet-9a441760/" target="_blank">
         <span class="entry-year">2009–2017</span>
         <span class="entry-status completed">COMPLETED</span>
         <span class="entry-name">Hanover Stringed Instruments GM<span class="desc">Full P&amp;L, lutherie, live sound production</span></span>
@@ -1180,53 +797,50 @@ footer p{
   </div>
 </section>
 
-<!-- Book / Guestbook -->
-<section class="book-section" id="book">
+<div class="star-divider">* * * * * * * * * * * * * * *</div>
+
+<!-- ═══ GUESTBOOK ═══ -->
+<section id="guestbook">
   <div class="container">
-    <div class="book-panel reveal">
+    <div class="guestbook-panel">
       <h2>Have a system worth building right?</h2>
-      <p>Tell me what you're trying to make last.</p>
-      <a href="https://cal.com/christophergoulet" class="btn-book" target="_blank">
-        Sign my guestbook
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
+      <p class="prompt"><span>$</span> Tell me what you're trying to make last.</p>
+      <a href="https://cal.com/christophergoulet" class="btn-guest cursor" target="_blank">
+        Sign my Guestbook
       </a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
     <div class="inner">
+
       <!-- Web Ring -->
       <div class="web-ring">
-        <a href="https://christophergoulet.com/apex.html">apex</a>
-        <span class="ring-arrow">→</span>
-        <a href="https://christophergoulet.com/biz.html">biz</a>
-        <span class="ring-arrow">→</span>
-        <a href="https://christophergoulet.com/tech.html" class="ring-current">tech</a>
-        <span class="ring-arrow">→</span>
-        <a href="https://christophergoulet.com/canada.html">canada</a>
-        <span class="ring-arrow">→</span>
-        <a href="https://christophergoulet.com/civic.html">civic</a>
-        <span class="ring-arrow">→</span>
+        <span class="ring-bracket">[</span><a href="https://christophergoulet.com/apex.html">← apex</a><span class="ring-bracket">]</span>
+        <span class="ring-bracket">[</span><a href="https://christophergoulet.com/biz.html">biz</a><span class="ring-bracket">]</span>
+        <span class="ring-bracket">[</span><span class="ring-current">tech</span><span class="ring-bracket">]</span>
+        <span class="ring-bracket">[</span><a href="https://christophergoulet.com/canada.html">canada</a><span class="ring-bracket">]</span>
+        <span class="ring-bracket">[</span><a href="https://christophergoulet.com/civic.html">civic →</a><span class="ring-bracket">]</span>
       </div>
 
-      <!-- Under construction -->
-      <div class="under-construction">
-        <span class="construction-sign"></span>
+      <!-- Under Construction Icon (SVG) -->
+      <div class="construction-icon">
+        <svg class="construction-svg" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="11,2 20,20 2,20" fill="#f0c040" stroke="#a07800" stroke-width="1.5"/>
+          <text x="11" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="#5a3e00" font-family="monospace">!</text>
+        </svg>
         this site is always under construction
       </div>
 
-      <!-- Badge -->
-      <p>Made with ☕ and 🍪 in Windsor, VT</p>
-
       <!-- Page Counter -->
       <div class="page-counter">
-        <span class="counter-label">You are visitor number</span>
+        <span class="counter-label">You are visitor number:</span>
         <div class="counter-display" id="page-counter">
+          <span class="counter-digit">0</span>
+          <span class="counter-digit">0</span>
           <span class="counter-digit">4</span>
           <span class="counter-digit">7</span>
           <span class="counter-digit">2</span>
@@ -1235,13 +849,16 @@ footer p{
         </div>
       </div>
 
-      <p>© 2026 Christopher Goulet</p>
+      <p class="footnote">Made with ☕ and 🍪 in Windsor, VT</p>
+      <p class="copyright">© 2026 Christopher Goulet</p>
     </div>
   </div>
 </footer>
 
 <script>
-// Mesh canvas — copper connections, teal nodes
+// ════════════════════════════════════════════
+// Mesh canvas — amber/gold connections on black
+// ════════════════════════════════════════════
 (function() {
   const canvas = document.getElementById('mesh-canvas');
   const ctx = canvas.getContext('2d');
@@ -1262,8 +879,7 @@ footer p{
       y: Math.random() * H,
       vx: (Math.random() - 0.5) * 0.3,
       vy: (Math.random() - 0.5) * 0.3,
-      // Some nodes are "healthy" (teal), rest are copper
-      healthy: Math.random() > 0.6
+      bright: Math.random() > 0.6  // some nodes are "bright" (gold-bright)
     });
   }
 
@@ -1284,11 +900,11 @@ footer p{
         const dy = nodes[i].y - nodes[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 180) {
-          const alpha = (1 - dist / 180) * 0.25;
+          const alpha = (1 - dist / 180) * 0.2;
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = `rgba(var(--copper-rgb, 212, 137, 90), ${alpha})`;
+          ctx.strokeStyle = `rgba(255, 176, 0, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -1299,10 +915,10 @@ footer p{
     for (let i = 0; i < NODES; i++) {
       ctx.beginPath();
       ctx.arc(nodes[i].x, nodes[i].y, 2, 0, Math.PI * 2);
-      if (nodes[i].healthy) {
-        ctx.fillStyle = `rgba(var(--teal-rgb, 79, 189, 189), 0.6)`;
+      if (nodes[i].bright) {
+        ctx.fillStyle = 'rgba(255, 204, 0, 0.7)';
       } else {
-        ctx.fillStyle = `rgba(var(--copper-rgb, 212, 137, 90), 0.4)`;
+        ctx.fillStyle = 'rgba(255, 176, 0, 0.4)';
       }
       ctx.fill();
     }
@@ -1310,33 +926,6 @@ footer p{
     requestAnimationFrame(draw);
   }
   draw();
-})();
-
-// UTC clock
-(function() {
-  const el = document.getElementById('utc-clock');
-  function tick() {
-    const now = new Date();
-    const d = now.toISOString().slice(0,10);
-    const t = now.toUTCString().slice(17,25);
-    el.textContent = `UTC ${d} ${t}`;
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-
-// Scroll reveal
-(function() {
-  const els = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(el => observer.observe(el));
 })();
 </script>
 
