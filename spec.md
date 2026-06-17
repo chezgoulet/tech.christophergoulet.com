@@ -58,7 +58,7 @@ The Tech page is a show-and-tell for a geek who builds cool things. It's not sel
 - Title: "Systems online."
 - Lede: "Private AI, distributed inference, agent systems. human/computer fluency."
 - Prompt: "$ whoami"
-- Bio blurb: 3-5 sentences describing who Christopher is — Franco-Canadian builder, cookie maker who builds systems, worker-owned bakery + multi-agent stack, municipal service, cooperative conversions, distributed systems. "I build things that last and don't phone home."
+- Bio blurb: an observation about how things connect. "The relationship between things is as real as the things themselves. A wheel is not a wheel without the axle. A lone note becomes music with companions. People are not a community without the trust that holds them together. The parts matter. The connections matter. La raison d'être matters. Miss not the forest for the trees."
 - Actions: "Message me" (gold btn-primary, mailto link) + "GitHub" (btn-ghost, links to github.com/chezgoulet)
 
 No stats panel, no pitch copy. The boot sequence + title + lede + bio blurb is the whole statement.
