@@ -49,10 +49,8 @@ The Tech page demonstrates depth and shows off the cool stuff. It serves two aud
 ```
 [Nav — brand + "Book a call" CTA]
 [Hero — terminal boot sequence, title, subtitle, actions]
-[Section 01 — Philosophy / point of view]
-[Section 02 — What I build (service cards)]
-[Section 03 — Current builds (Phonon, The House)]
-[Section 04 — Archive (selected work log)]
+[Section 01 — Current projects]
+[Section 02 — Services]
 [Booking panel]
 [Footer]
 ```
@@ -68,24 +66,18 @@ The Tech page demonstrates depth and shows off the cool stuff. It serves two aud
 
 **No stats panel in the hero.** The boot sequence + terminal aesthetic + copper/teal palette is enough visual identity. A stats panel here would compete with the solarpunk feel.
 
-### Philosophy Section
+### Current Builds Section
 
-This section exists because tech pages that only list services feel like a menu. Christopher's philosophy about systems is a differentiator.
+Two build cards (same pattern as current tech page).
 
-**Section header:** "A point of view" / "Systems that last are systems that can evolve"
+1. **Phonon** (IN DEVELOPMENT) — "A private distributed inference cluster. Turn spare Android phones into a secure, private AI cluster. No cloud, no data leakage. mDNS discovery, Ed25519 pairing, health-aware routing. Open source."
+2. **The House** (SELF-HOSTED) — "A multi-agent system for generational sovereignty. A self-maintaining infrastructure stack whose agents observe, document, and improve the systems they run on. Built so one person can operate at the scale of many."
 
-**Content (drawn from interview):**
-- "You don't design a program to last forever. You design a system to surface problems, address those problems, collaborate with stakeholders, and work on a continuous feedback loop."
-- "Systems that last are systems that can evolve, flex, be better over time."
-- The isomorphism: cookies and software are both source code → pipeline → package → deploy. "I generate isomorphic systems for values-based endeavors."
-
-This section can be a pull quote, a short paragraph, or the proof block (with copper border instead of amber-dim). Keep it tight — 3-4 sentences. It's the "why" before the "what."
+These should link to the respective repos or project sites when they exist.
 
 ### Services Section
 
-6 service cards in 3-column grid. Same .serve card pattern but with copper underline on hover.
-
-**Section header:** "What I build" / "Full-stack systems engineering for people who need it to last"
+6 service cards in 3-column grid.
 
 1. **Infrastructure & DevOps** — Design, deployment, and hardening. TrueNAS, Traefik, Authentik, Docker Compose, Tailscale, Nebula. Stacks one person can operate.
 2. **Private AI Infrastructure** — On-premise LLM inference, Phonon cluster, model distribution. No cloud, no data leakage.
@@ -93,17 +85,6 @@ This section can be a pull quote, a short paragraph, or the proof block (with co
 4. **Agent Systems** — Multi-agent architectures, autonomous operations, self-maintaining infrastructure. The House is the proof case.
 5. **Cooperative Technology** — Platform co-op design, member-owned systems, democratic governance. Technology that gives people ownership.
 6. **Audio & Electronics** — Studio design, signal flow, live venue sound. The technical side of the craft, from someone who's toured New England.
-
-### Current Builds Section
-
-Two build cards (same pattern as current tech page).
-
-**Section header:** "Current builds" / "What I'm building now"
-
-1. **Phonon** (IN DEVELOPMENT) — "A private distributed inference cluster. Turn spare Android phones into a secure, private AI cluster. No cloud, no data leakage. mDNS discovery, Ed25519 pairing, health-aware routing. Open source."
-2. **The House** (SELF-HOSTED) — "A multi-agent system for generational sovereignty. A self-maintaining infrastructure stack whose agents observe, document, and improve the systems they run on. Built so one person can operate at the scale of many."
-
-These should link to the respective repos or project sites when they exist.
 
 ### Archive Section
 
@@ -138,4 +119,3 @@ Near-black (`#0a0b0d`) is fine here — the tech page has more visual chrome (te
 
 1. **Copper color** — what exact hex? `#c87a3f` is a starting guess. Need to test on dark background for contrast.
 2. **Teal color** — `#3fa8a8` is a starting guess. Should teal be the link/button color and copper the heading/mono accent? Or vice versa?
-3. **The isomorphism framing** — "cookies and software are both source code → pipeline → package → deploy." This is Christopher's best metaphor. Should it be its own section, or worked into the philosophy section?
