@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://christophergoulet.com/sitemap.xml
+Sitemap: https://biz.christophergoulet.com/sitemap.xml
+Sitemap: https://tech.christophergoulet.com/sitemap.xml
+Sitemap: https://canada.christophergoulet.com/sitemap.xml
+Sitemap: https://civic.christophergoulet.com/sitemap.xml
+Sitemap: https://book.christophergoulet.com/sitemap.xml
