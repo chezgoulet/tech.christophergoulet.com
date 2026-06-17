@@ -56,12 +56,12 @@ The Tech page is a show-and-tell for a geek who builds cool things. It's not sel
 
 - Boot sequence (same animated pattern — "./house up", "mDNS service discovery", "ed25519 pairing", "health-aware routing", "all nodes nominal")
 - Title: "Systems online."
-- Lede: "Private AI, distributed inference, agent systems."
-- Tagline: "human/computer fluency"
+- Lede: "Private AI, distributed inference, agent systems. human/computer fluency."
 - Prompt: "$ whoami"
-- Actions: "Start a conversation" (gold btn-primary) + "See what I've built" (btn-ghost, linking to #builds)
+- Bio blurb: 3-5 sentences describing who Christopher is — Franco-Canadian builder, cookie maker who builds systems, worker-owned bakery + multi-agent stack, municipal service, cooperative conversions, distributed systems. "I build things that last and don't phone home."
+- Actions: "Message me" (gold btn-primary, mailto link) + "GitHub" (btn-ghost, links to github.com/chezgoulet)
 
-No stats panel, no pitch copy. The boot sequence + title + tagline is the whole statement.
+No stats panel, no pitch copy. The boot sequence + title + lede + bio blurb is the whole statement.
 
 ### Current Builds Section
 

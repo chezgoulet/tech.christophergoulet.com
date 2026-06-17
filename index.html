@@ -178,13 +178,6 @@ section{padding:60px 0;scroll-margin-top:40px;}
   line-height:1.6;
 }
 
-.hero .tagline{
-  font-size:15px;
-  color:var(--gold);
-  font-weight:bold;
-  margin-bottom:24px;
-}
-
 .hero .prompt-line{
   font-size:13px;
   color:var(--text-muted);
@@ -192,6 +185,17 @@ section{padding:60px 0;scroll-margin-top:40px;}
 }
 
 .hero .prompt-line span{color:var(--gold-bright);}
+
+.hero .bio-blurb{
+  margin-bottom:28px;
+  max-width:620px;
+}
+
+.hero .bio-blurb p{
+  font-size:14px;
+  color:var(--gold-dim);
+  line-height:1.6;
+}
 
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap;}
 
@@ -548,15 +552,17 @@ footer .copyright{
 
       <h1>Systems online.</h1>
 
-      <p class="lede">Private AI, distributed inference, agent systems.</p>
-
-      <p class="tagline">human/computer fluency</p>
+      <p class="lede">Private AI, distributed inference, agent systems. human/computer fluency.</p>
 
       <p class="prompt-line"><span>$</span> whoami</p>
 
+      <div class="bio-blurb">
+        <p>Franco-Canadian builder in Vermont. Cookie maker who builds systems. I run a worker-owned bakery and a multi-agent infrastructure stack — they're the same shape if you look at them right. Distributed inference, private AI, security architecture, agent systems. I've been in the room for municipal government, cooperative conversions, and distributed systems design. The common thread: I build things that last and don't phone home.</p>
+      </div>
+
       <div class="btns">
-        <a href="mailto:me@christophergoulet.com" class="btn-term primary cursor">Start a conversation</a>
-        <a href="#builds" class="btn-term">See what I've built</a>
+        <a href="mailto:me@christophergoulet.com" class="btn-term primary cursor">Message me</a>
+        <a href="https://github.com/chezgoulet" class="btn-term" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </div>
