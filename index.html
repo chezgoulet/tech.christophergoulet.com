@@ -257,20 +257,10 @@ section{padding:60px 0;scroll-margin-top:40px;}
   line-height:1.7;
 }
 
-/* ══════════════════ SERVICES ══════════════════ */
-.directory-header{
-  font-family:var(--mono);
-  font-size:14px;
-  color:var(--gold-bright);
-  margin-bottom:20px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
+/* ══════════════════ AREAS ══════════════════ */
+.areas-list{display:flex;flex-direction:column;gap:0;}
 
-.directory-header::before{content:'$ [';}
-.directory-header::after{content:']$';}
-
-.service-item{
+.area-item{
   display:flex;
   gap:12px;
   padding:12px 14px;
@@ -279,31 +269,32 @@ section{padding:60px 0;scroll-margin-top:40px;}
   align-items:flex-start;
 }
 
-.service-item:hover{
+.area-item:hover{
   background:rgba(var(--gold-rgb),0.04);
 }
 
-.service-item .idx{
+.area-prompt{
   font-family:var(--mono);
-  font-size:12px;
-  color:var(--text-muted);
+  font-size:14px;
+  color:var(--gold-bright);
   flex-shrink:0;
-  min-width:32px;
+  min-width:24px;
+  text-align:right;
 }
 
-.service-item .body{flex:1;}
+.area-item .body{flex:1;}
 
-.service-item .body h3{
+.area-item .body h3{
   font-family:var(--mono);
-  font-size:15px;
+  font-size:14px;
   font-weight:400;
   color:var(--gold);
   margin-bottom:2px;
+  text-transform:uppercase;
+  letter-spacing:0.8px;
 }
 
-.service-item .body h3::before{content:'> ';color:var(--gold-dim);}
-
-.service-item .body p{
+.area-item .body p{
   font-size:13px;
   color:var(--gold-dim);
   line-height:1.5;
@@ -513,7 +504,7 @@ footer .copyright{
   body{font-size:14px;}
   .top-nav{font-size:12px;}
   .boot{font-size:11px;padding-left:10px;}
-  .service-item{padding:10px 8px;flex-direction:column;gap:4px;}
+  .area-item{padding:10px 8px;flex-direction:column;gap:4px;}
   .guestbook-panel{padding:28px 16px;}
   .hero .content{padding:40px 0 60px;}
   .container{padding:0 14px;}
@@ -555,11 +546,11 @@ footer .copyright{
         <div class="boot-line" style="animation-delay:1.7s"><span class="ok">✓</span> all nodes nominal</div>
       </div>
 
-      <h1>Systems that don't phone home</h1>
+      <h1>Systems online.</h1>
 
-      <p class="lede">I build infrastructure for people who'd rather own their tools than rent them. Private AI, distributed inference, agent systems — designed so one person can run them.</p>
+      <p class="lede">Private AI, distributed inference, agent systems.</p>
 
-      <p class="tagline">I speak human and computer fluently.</p>
+      <p class="tagline">human/computer fluency</p>
 
       <p class="prompt-line"><span>$</span> whoami</p>
 
@@ -611,54 +602,54 @@ footer .copyright{
 
 <div class="star-divider">* * * * * * * * * * * * * * *</div>
 
-<!-- ═══ SERVICES ═══ -->
-<section id="services">
+<!-- ═══ AREAS ═══ -->
+<section id="areas">
   <div class="container">
     <div class="section-header">
-      <div class="prompt-label"><span>$</span> services</div>
+      <div class="prompt-label"><span>$</span> areas</div>
     </div>
 
-    <div class="services-list">
-      <div class="service-item">
-        <span class="idx">01.</span>
+    <div class="areas-list">
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Infrastructure &amp; DevOps</h3>
-          <p>Docker, TrueNAS, Traefik, Tailscale — documented stacks one person can run.</p>
+          <h3>infra/devops</h3>
+          <p>TrueNAS, Traefik, Tailscale, Docker Compose, Nebula. Stacks one person can operate.</p>
         </div>
       </div>
-      <div class="service-item">
-        <span class="idx">02.</span>
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Private AI</h3>
-          <p>On-premise LLMs, distributed inference clusters. Your data stays on your hardware.</p>
+          <h3>private AI</h3>
+          <p>On-prem LLMs, distributed inference clusters. Your data stays on your hardware.</p>
         </div>
       </div>
-      <div class="service-item">
-        <span class="idx">03.</span>
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Security &amp; Resilience</h3>
-          <p>Architecture review, threat modeling — the kind of analysis that catches what automated scanners don't.</p>
+          <h3>security</h3>
+          <p>Architecture review, threat modeling — what automated scanners miss. Logic errors, design assumptions, dead code paths.</p>
         </div>
       </div>
-      <div class="service-item">
-        <span class="idx">04.</span>
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Agent Systems</h3>
-          <p>Multi-agent orchestration, autonomous operations — systems that observe and improve themselves.</p>
+          <h3>agent systems</h3>
+          <p>Multi-agent orchestration, autonomous operations. Systems that observe and improve themselves.</p>
         </div>
       </div>
-      <div class="service-item">
-        <span class="idx">05.</span>
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Cooperative Technology</h3>
-          <p>Member-owned platforms, democratic governance, infrastructure that matches how your organization actually runs.</p>
+          <h3>cooperative tech</h3>
+          <p>Member-owned platforms, democratic governance. Infrastructure that matches how your organization runs.</p>
         </div>
       </div>
-      <div class="service-item">
-        <span class="idx">06.</span>
+      <div class="area-item">
+        <span class="area-prompt">&gt;</span>
         <div class="body">
-          <h3>Audio &amp; Electronics</h3>
-          <p>Studio design, live sound, signal flow — the technical side of a craft I've practiced from clubs to recording studios.</p>
+          <h3>audio/electronics</h3>
+          <p>Studio design, live sound, signal flow. From clubs to recording studios — I know my way around a board.</p>
         </div>
       </div>
     </div>

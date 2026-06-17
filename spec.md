@@ -2,12 +2,9 @@
 
 ## Role
 
-The Tech page demonstrates depth and shows off the cool stuff. It serves two audiences simultaneously:
+The Tech page is a show-and-tell for a geek who builds cool things. It's not selling anything — the contact buttons exist but they're not the point. This is where Christopher gets to be the builder, the tinkerer, the person who turns spare Android phones into inference clusters because that's a fun problem to solve.
 
-1. **People evaluating Christopher for hire** (CTOs, technical founders, engineering leads) — needs to demonstrate competency, depth, and a point of view quickly
-2. **Peers and open source users** — wants to see what's been built (Phonon, The House), understand the philosophy, and maybe contribute or use
-
-**The feeling after 5 minutes:** "This person genuinely understands distributed systems. They have a coherent philosophy about infrastructure. And they've actually shipped real things."
+**The feeling after 5 minutes:** "This person builds really interesting things. I want to see what they make next."
 
 ## Aesthetic Direction
 
@@ -47,24 +44,24 @@ The Tech page demonstrates depth and shows off the cool stuff. It serves two aud
 ## Content Architecture
 
 ```
-[Nav — brand + "Book a call" CTA]
-[Hero — terminal boot sequence, title, subtitle, actions]
+[Nav — brand]
+[Hero — terminal boot sequence, title, lede, actions]
 [Section 01 — Current projects]
-[Section 02 — Services]
-[Booking panel]
+[Section 02 — Areas]
+[Guestbook panel]
 [Footer]
 ```
 
 ### Hero
 
-- Boot sequence (same animated pattern — "initializing the house", "discovering nodes via mDNS", "pairing · ed25519", "routing · health-aware", "all nodes nominal")
-- Title: "Resilient infrastructure. Sovereign systems."
-- Subtitle / lede: "I build systems that don't phone home. Distributed inference clusters, private AI stacks, zero-trust networks, and agent systems — all designed for one-person operation." 
-  - OR, from Christopher's interview: "I speak human and computer fluently. I see connections others cannot. And I center people while doing it."
-  - Suggested: Use Christopher's words as a pull quote or tagline under the main lede. "I speak human and computer fluently" is too good to bury.
-- Actions: "Start a conversation" (copper btn-primary) + "See what I've built" (btn-ghost, linking to #builds)
+- Boot sequence (same animated pattern — "./house up", "mDNS service discovery", "ed25519 pairing", "health-aware routing", "all nodes nominal")
+- Title: "Systems online."
+- Lede: "Private AI, distributed inference, agent systems."
+- Tagline: "human/computer fluency"
+- Prompt: "$ whoami"
+- Actions: "Start a conversation" (gold btn-primary) + "See what I've built" (btn-ghost, linking to #builds)
 
-**No stats panel in the hero.** The boot sequence + terminal aesthetic + copper/teal palette is enough visual identity. A stats panel here would compete with the solarpunk feel.
+No stats panel, no pitch copy. The boot sequence + title + tagline is the whole statement.
 
 ### Current Builds Section
 
@@ -75,16 +72,16 @@ Two build cards (same pattern as current tech page).
 
 These should link to the respective repos or project sites when they exist.
 
-### Services Section
+### Areas Section
 
-6 service cards in 3-column grid.
+Six technical areas, listed like files in a directory — short, lowercase, no numbering. Each has a `>` prompt prefix and a one-line description.
 
-1. **Infrastructure & DevOps** — Design, deployment, and hardening. TrueNAS, Traefik, Authentik, Docker Compose, Tailscale, Nebula. Stacks one person can operate.
-2. **Private AI Infrastructure** — On-premise LLM inference, Phonon cluster, model distribution. No cloud, no data leakage.
-3. **Security & Resilience** — Architecture-level review, threat modeling, hardening. I find what automated scanners miss — logic errors, design assumptions, dead code paths.
-4. **Agent Systems** — Multi-agent architectures, autonomous operations, self-maintaining infrastructure. The House is the proof case.
-5. **Cooperative Technology** — Platform co-op design, member-owned systems, democratic governance. Technology that gives people ownership.
-6. **Audio & Electronics** — Studio design, signal flow, live venue sound. The technical side of the craft, from someone who's toured New England.
+- **infra/devops** — TrueNAS, Traefik, Tailscale, Docker Compose, Nebula. Stacks one person can operate.
+- **private AI** — On-prem LLMs, distributed inference clusters. Your data stays on your hardware.
+- **security** — Architecture review, threat modeling. What automated scanners miss: logic errors, design assumptions, dead code paths.
+- **agent systems** — Multi-agent orchestration, autonomous operations. Systems that observe and improve themselves.
+- **cooperative tech** — Member-owned platforms, democratic governance. Infrastructure that matches how your organization runs.
+- **audio/electronics** — Studio design, live sound, signal flow. From clubs to recording studios — I know my way around a board.
 
 ### Archive Section
 
@@ -95,17 +92,18 @@ Log-format archive (same pattern as current). Tech-relevant only.
 
 ## What NOT to include
 
-- No Covered Bridge story here (that's biz's proof block)
+- No Covered Bridge story (that's biz)
 - No Selectboard experience (that's civic)
 - No diaspora content (that's canada)
 - No pain questions (the biz framing)
 - No bilingual toggle
 - No carnival feel (civic)
-- No stats panel in hero
+- No pitch copy in the hero
+- No "I can help you" framing
 
 ## OLED
 
-Near-black (`#0a0b0d`) is fine here — the tech page has more visual chrome (terminal boot, mesh canvas, service cards) so true black isn't as critical. But don't use light backgrounds anywhere.
+Near-black (`#0a0b0d`) is fine here — the tech page has more visual chrome (terminal boot, mesh canvas, area list) so true black isn't as critical.
 
 ## Tech Notes
 
