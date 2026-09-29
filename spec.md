@@ -65,12 +65,13 @@ No stats panel, no pitch copy. The boot sequence + title + lede + bio blurb is t
 
 ### Current Builds Section
 
-Two build cards (same pattern as current tech page).
+Three build cards (same pattern as current tech page). Hermes Vox and Ragamuffin link
+to their GitHub repos; Ozymandosis links to its own site (ozymandosis.com) — it is a
+game with a public face of its own, not a repo-first project.
 
-1. **Phonon** (IN DEVELOPMENT) — "A private distributed inference cluster. Turn spare Android phones into a secure, private AI cluster. No cloud, no data leakage. mDNS discovery, Ed25519 pairing, health-aware routing. Open source."
-2. **The House** (SELF-HOSTED) — "A multi-agent system for generational sovereignty. A self-maintaining infrastructure stack whose agents observe, document, and improve the systems they run on. Built so one person can operate at the scale of many."
-
-These should link to the respective repos or project sites when they exist.
+1. **Hermes Vox** ([ACTIVE]) — "A voice for a Hermes agent. The entity speaking is the agent itself — not a persona laid over it — so the voice, the memory, the tools and the context all come from the instance you already run, over your own network. One interface over local, self-hosted and cloud voice backends; Android, shipping as signed releases and nightly builds."
+2. **Ragamuffin** ([ACTIVE]) — "A knowledge server for autonomous agents. Stores facts and documents so agents can answer questions about your systems without relying on their training data. Written in Go, backed by Qdrant, AGPL licensed. The memory layer for the whole House."
+3. **Ozymandosis** ([IN DEV]) — "A real-time strategy game of living light: grow a bioluminescent culture, evolve its creatures organ by organ, and outshine your rivals. Every hall, nest and spire is an organism too — it breathes, it grows, it shows its wounds — and six cultures each build a different way. Coming to Steam, iOS and Android." Link: https://ozymandosis.com
 
 ### Areas Section
 
@@ -87,7 +88,7 @@ Six technical areas, listed like files in a directory — short, lowercase, no n
 
 Log-format archive (same pattern as current). Tech-relevant only.
 
-**Active:** Uproot Technology LLC (2013–), Phonon (2026–), The House (2025–), Covered Bridge Cooperative (tech infrastructure work)
+**Active:** Uproot Technology LLC (2013–), Hermes Vox (2026–), Ozymandosis (2026–), The House (2025–), Covered Bridge Cooperative (tech infrastructure work)
 **Completed:** Keyscrape (2014 — SSH key distribution research), Wotown (2015 — location-based mobile app), Hanover Stringed Instruments GM (2009–2017)
 
 ## What NOT to include
